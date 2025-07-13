@@ -1,0 +1,64 @@
+body.light {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #434343;
+    --card-bg: #f9f9f9;
+    --border-color: #d9d9d9;
+    --mount-color: #F5F7FA;
+
+}
+body.dark {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --primary-color: #434343;
+    --card-bg: #2a2a2a;
+    --border-color: #434343;
+    --mount-color: #434343;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.ant-card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.ant-table {
+    background-color: var(--card-bg);
+}
+
+.ant-layout {
+    background-color: var(--mount-color);
+}
+
+.ant-card-actions {
+    background-color: var(--card-bg) !important;
+}
+
+.ant-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.ant-layout-header {
+    grid-row: 1;
+}
+
+.ant-layout-content {
+    grid-row: 2;
+}
+
+.ant-layout-footer {
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    grid-row: 3;
+}
+
+.text-theme{
+    color: var(--text-color);
+}
