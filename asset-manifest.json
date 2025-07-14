@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/perx-shop/static/css/main.d0179eca.css",
-    "main.js": "/perx-shop/static/js/main.b2a9d2d3.js",
+    "main.css": "/perx-shop/static/css/main.48139d86.css",
+    "main.js": "/perx-shop/static/js/main.38534228.js",
     "index.html": "/perx-shop/index.html",
-    "main.d0179eca.css.map": "/perx-shop/static/css/main.d0179eca.css.map",
-    "main.b2a9d2d3.js.map": "/perx-shop/static/js/main.b2a9d2d3.js.map"
+    "main.48139d86.css.map": "/perx-shop/static/css/main.48139d86.css.map",
+    "main.38534228.js.map": "/perx-shop/static/js/main.38534228.js.map"
   },
   "entrypoints": [
-    "static/css/main.d0179eca.css",
-    "static/js/main.b2a9d2d3.js"
+    "static/css/main.48139d86.css",
+    "static/js/main.38534228.js"
   ]
 }
