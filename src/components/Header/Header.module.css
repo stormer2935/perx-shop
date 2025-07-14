@@ -1,8 +1,11 @@
 .header {
-    padding: 16px;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    padding: 16px;
 }
 
 .headerLight {
