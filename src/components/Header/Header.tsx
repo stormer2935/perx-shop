@@ -19,7 +19,7 @@ const Header: React.FC = () => {
             justifyContent: 'space-between',
             alignItems: 'center'
         }}>
-            <Link to="/-shop" style={{ fontSize: '20px', fontWeight: 'bold', color: theme === 'light' ? '#333' : '#fff' }}>
+            <Link to="/" style={{ fontSize: '20px', fontWeight: 'bold', color: theme === 'light' ? '#333' : '#fff' }}>
                 PerxShop
             </Link>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
