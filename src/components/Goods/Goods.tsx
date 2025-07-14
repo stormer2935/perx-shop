@@ -17,8 +17,8 @@ const Goods: React.FC<GoodsProps> = ({dealers}) => {
     console.log('Ошибка:', error); // Проверьте ошибки
 
     if (isLoading) return <div className='text-theme'>Загрузка...</div>;
-    if (isError) return <div>Ошибка загрузки</div>;
-    if (!goods?.length) return <div>Товары отсутствуют</div>;
+    if (isError) return <div className='text-theme'>Ошибка загрузки</div>;
+    if (!goods?.length) return <div className='text-theme'>Товары отсутствуют</div>;
 
     const handleAddToCart = (good: any) => {
         dispatch(addToCart(good));
@@ -26,7 +26,7 @@ const Goods: React.FC<GoodsProps> = ({dealers}) => {
     };
 
     if (isLoading) return <Spin size="large" style={{display: 'block', margin: '20px auto'}}/>;
-    if (isError) return <div>Ошибка загрузки товаров</div>;
+    if (isError) return <div className='text-theme'>Ошибка загрузки товаров</div>;
 
     return (
         <div style={{padding: '24px'}}>
