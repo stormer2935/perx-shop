@@ -12,14 +12,8 @@ interface GoodsProps {
 const Goods: React.FC<GoodsProps> = ({dealers}) => {
     const {data: goods, isLoading, isError} = useGetGoodsQuery(dealers);
     const dispatch = useDispatch();
-
-    if (isLoading) return <div className='textTheme'>Загрузка...</div>;
-    if (isError) return <div className='textTheme'>Ошибка загрузки</div>;
-    if (!goods?.length) return <div className='textTheme'>Товары отсутствуют</div>;
-
     const handleAddToCart = (good: any) => {
         dispatch(addToCart(good));
-        message.success('Товар добавлен в корзину');
     };
 
     if (isLoading) return <Spin size="large" style={{display: 'block', margin: '20px auto'}}/>;
