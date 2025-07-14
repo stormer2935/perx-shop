@@ -1,0 +1,9 @@
+.quantityControl {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.quantityInput {
+    width: 60px;
+}

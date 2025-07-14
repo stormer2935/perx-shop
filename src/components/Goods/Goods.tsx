@@ -10,15 +10,12 @@ interface GoodsProps {
 }
 
 const Goods: React.FC<GoodsProps> = ({dealers}) => {
-    const {data: goods, isLoading, isError, error} = useGetGoodsQuery(dealers);
+    const {data: goods, isLoading, isError} = useGetGoodsQuery(dealers);
     const dispatch = useDispatch();
 
-    console.log('Данные товаров:', goods); // Проверьте данные в консоли
-    console.log('Ошибка:', error); // Проверьте ошибки
-
-    if (isLoading) return <div className='text-theme'>Загрузка...</div>;
-    if (isError) return <div className='text-theme'>Ошибка загрузки</div>;
-    if (!goods?.length) return <div className='text-theme'>Товары отсутствуют</div>;
+    if (isLoading) return <div className='textTheme'>Загрузка...</div>;
+    if (isError) return <div className='textTheme'>Ошибка загрузки</div>;
+    if (!goods?.length) return <div className='textTheme'>Товары отсутствуют</div>;
 
     const handleAddToCart = (good: any) => {
         dispatch(addToCart(good));
@@ -26,7 +23,7 @@ const Goods: React.FC<GoodsProps> = ({dealers}) => {
     };
 
     if (isLoading) return <Spin size="large" style={{display: 'block', margin: '20px auto'}}/>;
-    if (isError) return <div className='text-theme'>Ошибка загрузки товаров</div>;
+    if (isError) return <div className='textTheme'>Ошибка загрузки товаров</div>;
 
     return (
         <div style={{padding: '24px'}}>

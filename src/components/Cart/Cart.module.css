@@ -1,0 +1,139 @@
+.cartContainer {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.titleLight {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.titleDark {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.emptyTextLight {
+    color: #333;
+    font-size: 14px;
+}
+
+.emptyTextDark {
+    color: #fff;
+    font-size: 14px;
+}
+
+.itemsContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cardLight {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.cardDark {
+    background-color: #1f1f1f;
+    border-radius: 8px;
+}
+
+.itemContent {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.itemImage {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.itemDetails {
+    flex: 1;
+}
+
+.itemNameLight {
+    display: block;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.itemNameDark {
+    display: block;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.itemPriceLight {
+    display: block;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.itemPriceDark {
+    display: block;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.itemTotalLight {
+    display: block;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.itemTotalDark {
+    display: block;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.itemActions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.totalLight {
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.totalDark {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.divider {
+    margin: 16px 0;
+}
+
+.clearButton {
+    margin-right: 8px;
+}

@@ -1,14 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
-import { Button, Table, Space, Typography, Divider, Empty } from 'antd';
+import { Button, Divider, Empty, Card } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
-import CartItem from './CartItem';
-import { clearCart } from '../../store/cartSlice';
-import { removeFromCart } from '../../store/cartSlice';
+import CartItemComponent from './CartItem';
+import { clearCart, removeFromCart } from '../../store/cartSlice';
 import { useTheme } from '../../context/ThemeContext';
-
-const { Title, Text } = Typography;
+import styles from './Cart.module.css';
 
 const Cart: React.FC = () => {
     const { theme } = useTheme();
@@ -26,10 +24,12 @@ const Cart: React.FC = () => {
 
     if (cartItems.length === 0) {
         return (
-            <div style={{ padding: '24px', textAlign: 'center' }}>
+            <div className={styles.cartContainer}>
                 <Empty
                     description={
-                        <Text type="secondary" style={{color: theme === 'light' ? '#333' : '#fff'}}>Ваша корзина пуста</Text>
+                        <div className={theme === 'light' ? styles.emptyTextLight : styles.emptyTextDark}>
+                            Ваша корзина пуста
+                        </div>
                     }
                 >
                     <Button type="primary" href="/perx-shop">
@@ -41,74 +41,64 @@ const Cart: React.FC = () => {
     }
 
     return (
-        <div style={{ padding: '24px' }}>
-            <Title level={2} style={{color: theme === 'light' ? '#333' : '#fff' }}>Корзина</Title>
-            <Space direction="vertical" style={{ width: '100%' }}>
-                <Table
-                    dataSource={cartItems}
-                    columns={[
-                        {
-                            title: 'Товар',
-                            dataIndex: 'name',
-                            key: 'name',
-                            render: (text, record) => (
-                                <div style={{ display: 'flex', alignItems: 'center' }}>
-                                    <img
-                                        src={`https://test-frontend.dev.int.perx.ru${record.image}`}
-                                        alt={text}
-                                        style={{ width: '50px', marginRight: '16px' }}
-                                    />
-                                    <span>{text}</span>
+        <div className={styles.cartContainer}>
+            <h2 className={theme === 'light' ? styles.titleLight : styles.titleDark}>Корзина</h2>
+
+            <div className={styles.itemsContainer}>
+                {cartItems.map(item => (
+                    <Card
+                        key={item.name}
+                        className={theme === 'light' ? styles.cardLight : styles.cardDark}
+                    >
+                        <div className={styles.itemContent}>
+                            <img
+                                src={`https://test-frontend.dev.int.perx.ru${item.image}`}
+                                alt={item.name}
+                                className={styles.itemImage}
+                            />
+
+                            <div className={styles.itemDetails}>
+                                <div className={theme === 'light' ? styles.itemNameLight : styles.itemNameDark}>
+                                    {item.name}
                                 </div>
-                            ),
-                        },
-                        {
-                            title: 'Цена',
-                            dataIndex: 'price',
-                            key: 'price',
-                            render: (price) => `$${price.toFixed(2)}`,
-                        },
-                        {
-                            title: 'Количество',
-                            dataIndex: 'quantity',
-                            key: 'quantity',
-                            render: (quantity, record) => (
-                                <CartItem item={record} />
-                            ),
-                        },
-                        {
-                            title: 'Сумма',
-                            key: 'total',
-                            render: (_, record) => `$${(record.price * record.quantity).toFixed(2)}`,
-                        },
-                        {
-                            title: 'Действия',
-                            key: 'actions',
-                            render: (_, record) => (
+                                <div className={theme === 'light' ? styles.itemPriceLight : styles.itemPriceDark}>
+                                    ${item.price.toFixed(2)}
+                                </div>
+                                <CartItemComponent item={item} />
+                            </div>
+
+                            <div className={styles.itemActions}>
+                                <div className={theme === 'light' ? styles.itemTotalLight : styles.itemTotalDark}>
+                                    ${(item.price * item.quantity).toFixed(2)}
+                                </div>
                                 <Button
                                     danger
+                                    type="text"
                                     icon={<DeleteOutlined />}
-                                    onClick={() => dispatch(removeFromCart(record.name))}
+                                    onClick={() => dispatch(removeFromCart(item.name))}
                                 />
-                            ),
-                        },
-                    ]}
-                    pagination={false}
-                    rowKey="name"
-                />
-                <Divider />
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            </div>
+                        </div>
+                    </Card>
+                ))}
+
+                <Divider className={styles.divider} />
+
+                <div className={styles.footer}>
                     <Button
+                        danger
                         icon={<DeleteOutlined />}
                         onClick={handleClearCart}
+                        className={styles.clearButton}
                     >
                         Очистить корзину
                     </Button>
-                    <Title level={4} style={{ margin: 0, color: theme === 'light' ? '#333' : '#fff' }}>
+
+                    <div className={theme === 'light' ? styles.totalLight : styles.totalDark}>
                         Итого: ${totalPrice.toFixed(2)}
-                    </Title>
+                    </div>
                 </div>
-            </Space>
+            </div>
         </div>
     );
 };

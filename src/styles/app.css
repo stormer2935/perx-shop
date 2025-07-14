@@ -5,3 +5,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.ant-layout {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.css-dev-only-do-not-override-pjilya {
+    max-width: 100% !important;
+}

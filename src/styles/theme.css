@@ -59,6 +59,6 @@ body {
     grid-row: 3;
 }
 
-.text-theme{
+.textTheme{
     color: var(--text-color);
 }

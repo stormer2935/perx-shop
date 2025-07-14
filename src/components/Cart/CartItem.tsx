@@ -1,8 +1,10 @@
 import React from 'react';
-import { Button, InputNumber, Space } from 'antd';
+import { Button, InputNumber } from 'antd';
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { CartItem } from '../../types/types';
 import { useDispatch } from 'react-redux';
 import { updateQuantity } from '../../store/cartSlice';
+import styles from './CartItem.module.css';
 
 interface CartItemProps {
     item: CartItem;
@@ -18,21 +20,25 @@ const CartItemComponent: React.FC<CartItemProps> = ({ item }) => {
     };
 
     return (
-        <Space>
+        <div className={styles.quantityControl}>
             <Button
+                icon={<MinusOutlined />}
                 onClick={() => handleQuantityChange(item.quantity - 1)}
                 disabled={item.quantity <= 1}
-            >
-                -
-            </Button>
+            />
+
             <InputNumber
                 min={1}
                 value={item.quantity}
                 onChange={handleQuantityChange}
-                style={{ width: '60px'}}
+                className={styles.quantityInput}
             />
-            <Button onClick={() => handleQuantityChange(item.quantity + 1)}>+</Button>
-        </Space>
+
+            <Button
+                icon={<PlusOutlined />}
+                onClick={() => handleQuantityChange(item.quantity + 1)}
+            />
+        </div>
     );
 };
 

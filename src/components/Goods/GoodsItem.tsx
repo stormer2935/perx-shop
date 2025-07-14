@@ -26,9 +26,9 @@ const GoodsItem: React.FC<GoodsItemProps> = ({good, onAddToCart}) => {
         >
             <Card.Meta
                 title={<Title level={4}>
-                    <div className='text-theme'>{good.name}</div>
+                    <div className='textTheme'>{good.name}</div>
                 </Title>}
-                description={<Text strong className='text-theme'>${good.price.toFixed(2)}</Text>}
+                description={<Text strong className='textTheme'>${good.price.toFixed(2)}</Text>}
             />
         </Card>
     );

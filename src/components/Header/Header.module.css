@@ -1,0 +1,42 @@
+.header {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerLight {
+    composes: header;
+    background: #d8e0ed;
+}
+
+.headerDark {
+    composes: header;
+    background: #1d1d1d;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logoLight {
+    composes: logo;
+    color: #333;
+}
+
+.logoDark {
+    composes: logo;
+    color: #fff;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cartButton {
+    display: flex;
+    align-items: center;
+}

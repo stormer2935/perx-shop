@@ -5,6 +5,7 @@ import { ShoppingCartOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { useTheme } from '../../context/ThemeContext';
+import styles from './Header.module.css';
 
 const Header: React.FC = () => {
     const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -12,24 +13,21 @@ const Header: React.FC = () => {
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
     return (
-        <header style={{
-            padding: '16px',
-            background: theme === 'light' ? '#d8e0ed' : '#1d1d1d',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-        }}>
-            <Link to="/" style={{ fontSize: '20px', fontWeight: 'bold', color: theme === 'light' ? '#333' : '#fff' }}>
+        <header className={theme === 'light' ? styles.headerLight : styles.headerDark}>
+            <Link
+                to="/"
+                className={theme === 'light' ? styles.logoLight : styles.logoDark}
+            >
                 PerxShop
             </Link>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div className={styles.controls}>
                 <Switch
                     checked={theme === 'dark'}
                     onChange={toggleTheme}
                     checkedChildren="🌙"
                     unCheckedChildren="☀️"
                 />
-                <Link to="/cart">
+                <Link to="/cart" className={styles.cartButton}>
                     <Badge count={totalItems}>
                         <Button type="primary" icon={<ShoppingCartOutlined />} size="large">
                             Корзина
