@@ -32,7 +32,7 @@ const Cart: React.FC = () => {
                         <Text type="secondary" style={{color: theme === 'light' ? '#333' : '#fff'}}>Ваша корзина пуста</Text>
                     }
                 >
-                    <Button type="primary" href="/">
+                    <Button type="primary" href="/perx-shop">
                         Вернуться к покупкам
                     </Button>
                 </Empty>
